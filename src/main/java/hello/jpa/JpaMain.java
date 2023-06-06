@@ -41,11 +41,11 @@ public class JpaMain {
             System.out.println("영속성 컨텍스트의 엔턴티 동일성 보장 : " + (findMember1 == findMember2)); //각각의 객체생성이라서 false가 나타날 수도 있는데, true가 나타나는 동일성 보장 기능
             */
 
-            Member memberA = new Member(150L, "A");
-            Member memberB = new Member(160L, "B");
+//            Member memberA = new Member(150L, "A");
+//            Member memberB = new Member(160L, "B");
 
-            em.persist(memberA);
-            em.persist(memberB);
+//            em.persist(memberA);
+//            em.persist(memberB);
 
             System.out.println("==================");
 
