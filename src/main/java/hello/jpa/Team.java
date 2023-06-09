@@ -1,9 +1,8 @@
 package hello.jpa;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Team {
@@ -13,6 +12,17 @@ public class Team {
     private Long id;
 
     private String name;
+
+    @OneToMany(mappedBy = "team") //mapped by는 Member 엔터티의 필드 네임 team임을 알려주는 것이다.
+    private List<Member> memberList = new ArrayList<>(); //필드 생성할 때 초기화 시켜주는 것이 관례.
+
+    public List<Member> getMemberList() {
+        return memberList;
+    }
+
+    public void setMemberList(List<Member> memberList) {
+        this.memberList = memberList;
+    }
 
     public Long getId() {
         return id;

@@ -40,8 +40,9 @@ public class Member {
         return team;
     }
 
-    public void setTeam(Team team) {
+    public void changeTeam(Team team) {
         this.team = team;
+        team.getMemberList().add(this);
     }
 
 
@@ -68,4 +69,13 @@ public class Member {
     public void setTeamId(Long teamId) {
         this.teamId = teamId;
     }*/
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", team=" + team +
+                '}';
+    }
 }
