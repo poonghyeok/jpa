@@ -19,12 +19,7 @@ public class JpaMain {
         tx.begin();
 
         try {
-
-            Order order = em.find(Order.class, 1l);
-            Long memberId = order.getMemberId();
-
-            Member member = em.find(Member.class, memberId);
-
+            Order order = new Order();
 
             tx.commit();
         } catch (Exception e) {
