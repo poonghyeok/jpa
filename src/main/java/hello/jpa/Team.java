@@ -13,7 +13,8 @@ public class Team {
 
     private String name;
 
-    @OneToMany(mappedBy = "team") //mapped by는 Member 엔터티의 필드 네임 team임을 알려주는 것이다.
+    @OneToMany/*(mappedBy = "team")*/ //mapped by는 Member 엔터티의 필드 네임 team임을 알려주는 것이다.
+    @JoinColumn(name = "TEAM_ID")
     private List<Member> memberList = new ArrayList<>(); //필드 생성할 때 초기화 시켜주는 것이 관례.
 
     public List<Member> getMemberList() {
