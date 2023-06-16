@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Entity /*실습으로 일시주석*/
+//@Entity /*실습으로 일시주석*/
 /*@TableGenerator(
         name = "member_seq_generator",
         table = "my_sequences",
@@ -45,15 +45,15 @@ public class Member {
      * 다대다 매핑 학습용 Product
      * 멤버 <-> 프로덕트
      */
-//    @ManyToMany
-//    @JoinTable(name = "MEMBER_PRODUCT")
-//    private List<Product> products = new ArrayList<>();
+    @ManyToMany
+    @JoinTable(name = "MEMBER_PRODUCT")
+    private List<Product> products = new ArrayList<>();
 
     /**
      * 다대다를 다대일로 낮추고 매핑테이블은 엔터티로 승격시켜서 사용하기
      * */
-    @OneToMany(mappedBy = "member")
-    private List<MemberProduct> memberProducts = new ArrayList<>();
+//    @OneToMany(mappedBy = "member")
+//    private List<MemberProduct> memberProducts = new ArrayList<>();
 
 
 //    @Column(name = "TEAM_ID")

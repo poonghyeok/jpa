@@ -18,6 +18,10 @@ public class Order {
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
 
+    @OneToOne
+    @JoinColumn(name="DELIVERY_ID")
+    private Delivery delivery;
+
     /**
      * orderItems를 만들면서 양방향 매핑으로 가는 것이 꼭 필요한가?
      *  - 비즈니스 적으로 가치가 높다.
