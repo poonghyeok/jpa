@@ -3,13 +3,14 @@ package hello.jpa;
 import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@DiscriminatorColumn(name = "ITEM_TYPE")
 public class Item {
 
     /**
      * 상속관계 매핑 코드 실습
-     *  - 객체지향언어로 보면, 인터페이스 역할...
-     * */
+     * - 객체지향언어로 보면, 인터페이스 역할...
+     */
     @Id
     @GeneratedValue
     private Long id;

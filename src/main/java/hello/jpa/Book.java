@@ -1,5 +1,6 @@
 package hello.jpa;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity

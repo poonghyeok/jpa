@@ -1,8 +1,10 @@
 package hello.jpa;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
+@DiscriminatorValue("A")
 public class Album extends Item{
     //엔터티가 엔터티를 상속받는다..
 
