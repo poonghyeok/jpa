@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-//@Entity /*실습으로 일시주석*/
+@Entity /*실습으로 일시주석*/
 /*@TableGenerator(
         name = "member_seq_generator",
         table = "my_sequences",
@@ -21,7 +21,7 @@ import java.util.List;
         initialValue = 1, allocationSize = 50
 )
 */
-public class Member {
+public class Member extends BaseEntity{
 
     @Id
     @GeneratedValue()
@@ -58,6 +58,8 @@ public class Member {
 
 //    @Column(name = "TEAM_ID")
 //    private Long teamId;
+
+
 
     public Long getId() {
         return id;
