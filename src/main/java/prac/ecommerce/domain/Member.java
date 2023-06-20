@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Entity
-public class Member {
+@Entity
+public class Member extends BaseEntity {
 
     @Id@GeneratedValue//일단 (default) AUTO로 가봅시다
     @Column(name = "MEMBER_ID")

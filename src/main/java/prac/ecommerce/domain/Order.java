@@ -5,9 +5,9 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Entity
+@Entity
 @Table(name = "ORDERS") //ORDER는 DB의 예약어이기 때문에,,,!
-public class Order {
+public class Order extends BaseEntity{
 
     @Id@GeneratedValue
     @Column(name = "ORDER_ID")
@@ -15,11 +15,11 @@ public class Order {
 
 
     @ManyToOne
-    @JoinColumn(name = "MEMBER_ID")
+    @JoinColumn(name = "MEMBER_ID", foreignKey = @ForeignKey(name = "FK_ORDER_MEMBER"))
     private Member member;
 
     @OneToOne
-    @JoinColumn(name="DELIVERY_ID")
+    @JoinColumn(name="DELIVERY_ID", foreignKey = @ForeignKey(name = "FK_ORDER_DELIVERY"))
     private Delivery delivery;
 
     /**

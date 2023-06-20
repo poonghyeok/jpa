@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Entity /*실습으로 일시주석*/
+//@Entity /*실습으로 일시주석*/
 /*@TableGenerator(
         name = "member_seq_generator",
         table = "my_sequences",

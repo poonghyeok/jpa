@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Entity
-public class Category {
+@Entity
+public class Category extends BaseEntity{
 
     @Id @GeneratedValue
     private Long id;
@@ -13,7 +13,7 @@ public class Category {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name="PARENT_ID")
+    @JoinColumn(name="PARENT_ID",  foreignKey = @ForeignKey(name = "FK_CATEGORY_PARENT"))
     private Category parent; //상위 카테고리.. jpa는 셀프 매핑도 지원한다.
 
     @OneToMany(mappedBy = "parent")
@@ -24,8 +24,8 @@ public class Category {
      */
     @ManyToMany
     @JoinTable(name="CATEGORY_ITEM",
-                joinColumns = @JoinColumn(name = "CATEGORY_ID"),
-                inverseJoinColumns = @JoinColumn(name="ITEM_ID")
+                joinColumns = @JoinColumn(name = "CATEGORY_ID",  foreignKey = @ForeignKey(name = "FK_CATEGORY")),
+                inverseJoinColumns = @JoinColumn(name="ITEM_ID",  foreignKey = @ForeignKey(name = "FK_ITEM"))
     )
     private List<Item> items = new ArrayList<>();
 }

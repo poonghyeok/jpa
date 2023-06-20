@@ -37,6 +37,13 @@
 - ***23.06.18***
   - 섹션7.고급매핑
     - 상속관계매핑 한번더 (노션정리)
-- ***23.06.20***
+- ***23.06.19***
   - 섹션7.고급매핑
     - Mapped Supercalss - 매핑 정보 상속 (노션완)
+- ***23.06.20***
+  - 섹션7. 고급매핑
+    - 실전예제4
+  - maven 수정
+    - hibernate-entitymanger -> hibernate-core 
+      - drop table ( fk constraint exception 문제로 version up)
+      - version up 이후 fk들이 drop table을 하면서 cascade로 함께 drop됨
