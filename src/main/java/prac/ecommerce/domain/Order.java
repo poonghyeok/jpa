@@ -5,8 +5,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name = "ORDERS") //ORDER는 DB의 예약어이기 때문에,,,!
+//@Entity
+//@Table(name = "ORDERS") //ORDER는 DB의 예약어이기 때문에,,,!
 public class Order extends BaseEntity{
 
     @Id@GeneratedValue

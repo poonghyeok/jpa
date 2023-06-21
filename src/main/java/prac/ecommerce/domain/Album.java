@@ -2,7 +2,7 @@ package prac.ecommerce.domain;
 
 import javax.persistence.Entity;
 
-@Entity
+//@Entity
 public class Album extends Item {
 
     String artist;

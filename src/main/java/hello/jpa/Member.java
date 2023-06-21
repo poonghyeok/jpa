@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-//@Entity /*실습으로 일시주석*/
+@Entity /*실습으로 일시주석*/
 /*@TableGenerator(
         name = "member_seq_generator",
         table = "my_sequences",
@@ -51,15 +51,32 @@ public class Member extends BaseEntity{
 
     /**
      * 다대다를 다대일로 낮추고 매핑테이블은 엔터티로 승격시켜서 사용하기
-     * */
+     */
 //    @OneToMany(mappedBy = "member")
 //    private List<MemberProduct> memberProducts = new ArrayList<>();
-
 
 //    @Column(name = "TEAM_ID")
 //    private Long teamId;
 
+    @ManyToOne
+    @JoinColumn(name = "TEAM_ID")
+    private Team team;
 
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
+    }
 
     public Long getId() {
         return id;

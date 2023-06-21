@@ -3,7 +3,7 @@ package hello.jpa;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-//@Entity
+@Entity
 public class MemberProduct {
 
     //다대다에서 매핑테이블 역할을 할 엔터티를 만든다.

@@ -47,3 +47,6 @@
     - hibernate-entitymanger -> hibernate-core 
       - drop table ( fk constraint exception 문제로 version up)
       - version up 이후 fk들이 drop table을 하면서 cascade로 함께 drop됨
+- ***23.06.21***
+  - 섹션8. 프록시와 연관관계 관리
+    - 프록시(노션완)

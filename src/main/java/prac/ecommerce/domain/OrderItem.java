@@ -2,7 +2,7 @@ package prac.ecommerce.domain;
 
 import javax.persistence.*;
 
-@Entity
+//@Entity
 public class OrderItem extends BaseEntity{
 
     @Id@GeneratedValue

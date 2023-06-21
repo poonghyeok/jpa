@@ -1,9 +1,8 @@
 package hello.jpa;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import org.hibernate.jpa.internal.PersistenceUnitUtilImpl;
+
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 public class JpaMain5 {
@@ -17,11 +16,25 @@ public class JpaMain5 {
 
         try {
             Member member = new Member();
-            member.setUsername("superclass");
-            member.setCreatedBy("admin");
-            member.setCreatedDate(LocalDateTime.now());
+            member.setUsername("running king poonghyeok");
 
             em.persist(member);
+
+            em.flush();
+            em.clear();
+
+            /**
+             * 지금까지 사용해왔떤 em.find... flush()와 clear()를 하고 find를 하게 되면 영속성 컨텍스트가 초기화 된 상태기 때문에 쿼리를 날리는 걸 볼 수 있다.
+             * */
+
+//            Member findMember = em.find(Member.class, member.getId());
+//            System.out.println("findMember id : " + findMember.getId());
+//            System.out.println("findMember name : " + findMember.getUsername());
+
+            Member refMember = em.getReference(Member.class, member.getId()); //프록시 멤버다
+            System.out.println("ref Member : " + refMember.getClass());
+            refMember.getUsername();
+            System.out.println("is Loaded ? " + emf.getPersistenceUnitUtil().isLoaded(refMember));
 
             tx.commit();
         } catch (Exception e) {
@@ -31,8 +44,6 @@ public class JpaMain5 {
             em.close();
             emf.close();
         }
-
-
 
     }
 }

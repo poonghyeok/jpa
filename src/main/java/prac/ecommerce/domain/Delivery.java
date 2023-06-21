@@ -2,7 +2,7 @@ package prac.ecommerce.domain;
 
 import javax.persistence.*;
 
-@Entity
+//@Entity
 public class Delivery extends BaseEntity{
 
     @Id@GeneratedValue
