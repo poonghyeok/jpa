@@ -35,7 +35,7 @@ public class Member extends BaseEntity{
      * 일대일 연관관계 매핑 학습용
      *  - 멤버 <-> 라커 1:1 관계 가정
      * */
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name ="LOCKER_ID")
     private Locker locker;
 
@@ -58,7 +58,7 @@ public class Member extends BaseEntity{
 //    @Column(name = "TEAM_ID")
 //    private Long teamId;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "TEAM_ID")
     private Team team;
 

@@ -4,6 +4,7 @@ import org.hibernate.jpa.internal.PersistenceUnitUtilImpl;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class JpaMain5 {
 
@@ -17,8 +18,22 @@ public class JpaMain5 {
         try {
             Member member = new Member();
             member.setUsername("running king poonghyeok");
-
             em.persist(member);
+
+            Member member2 = new Member();
+            member.setUsername("yoga king poonghyeok");
+            em.persist(member2);
+
+            Team team = new Team();
+            team.setName("team A");
+            em.persist(team);
+
+            Team team2 = new Team();
+            team2.setName("team B");
+            em.persist(team2);
+
+            member.setTeam(team);
+            member2.setTeam(team2);
 
             em.flush();
             em.clear();
@@ -31,10 +46,10 @@ public class JpaMain5 {
 //            System.out.println("findMember id : " + findMember.getId());
 //            System.out.println("findMember name : " + findMember.getUsername());
 
-            Member refMember = em.getReference(Member.class, member.getId()); //프록시 멤버다
-            System.out.println("ref Member : " + refMember.getClass());
-            refMember.getUsername();
-            System.out.println("is Loaded ? " + emf.getPersistenceUnitUtil().isLoaded(refMember));
+//            Member findMember = em.find(Member.class, member.getId()); //프록시 멤버다
+
+            List<Member> members = em.createQuery("select m from  Member m join fetch m.team", Member.class)
+                    .getResultList();
 
             tx.commit();
         } catch (Exception e) {
