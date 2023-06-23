@@ -4,7 +4,9 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Entity
+import static javax.persistence.FetchType.*;
+
+@Entity
 public class Category extends BaseEntity{
 
     @Id @GeneratedValue
@@ -12,7 +14,7 @@ public class Category extends BaseEntity{
 
     private String name;
 
-    @ManyToOne
+    @ManyToOne(fetch = LAZY)
     @JoinColumn(name="PARENT_ID",  foreignKey = @ForeignKey(name = "FK_CATEGORY_PARENT"))
     private Category parent; //상위 카테고리.. jpa는 셀프 매핑도 지원한다.
 

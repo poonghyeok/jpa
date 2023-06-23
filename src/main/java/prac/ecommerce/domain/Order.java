@@ -5,8 +5,11 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Entity
-//@Table(name = "ORDERS") //ORDER는 DB의 예약어이기 때문에,,,!
+import static javax.persistence.CascadeType.*;
+import static javax.persistence.FetchType.*;
+
+@Entity
+@Table(name = "ORDERS") //ORDER는 DB의 예약어이기 때문에,,,!
 public class Order extends BaseEntity{
 
     @Id@GeneratedValue
@@ -14,11 +17,11 @@ public class Order extends BaseEntity{
     private Long id;
 
 
-    @ManyToOne
+    @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "MEMBER_ID", foreignKey = @ForeignKey(name = "FK_ORDER_MEMBER"))
     private Member member;
 
-    @OneToOne
+    @OneToOne(fetch = LAZY, cascade = ALL)
     @JoinColumn(name="DELIVERY_ID", foreignKey = @ForeignKey(name = "FK_ORDER_DELIVERY"))
     private Delivery delivery;
 
@@ -27,7 +30,7 @@ public class Order extends BaseEntity{
      *  - 비즈니스 적으로 가치가 높다.
      *  - 한 주문에 어떤 아이템들이 주문되었는지 보기 위해서
      * */
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order", cascade = ALL)
     private List<OrderItem> orderItems = new ArrayList<>();
 
     private LocalDateTime orderDate;

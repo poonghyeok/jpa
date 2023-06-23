@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Entity
+@Entity
 public class Member extends BaseEntity {
 
     @Id@GeneratedValue//일단 (default) AUTO로 가봅시다

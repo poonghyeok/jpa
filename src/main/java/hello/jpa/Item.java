@@ -2,9 +2,9 @@ package hello.jpa;
 
 import javax.persistence.*;
 
-@Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-@DiscriminatorColumn(name = "ITEM_TYPE")
+//@Entity
+//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+//@DiscriminatorColumn(name = "ITEM_TYPE")
 public class Item {
 
     /**

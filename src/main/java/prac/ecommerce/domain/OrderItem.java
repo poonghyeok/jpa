@@ -2,18 +2,20 @@ package prac.ecommerce.domain;
 
 import javax.persistence.*;
 
-//@Entity
+import static javax.persistence.FetchType.LAZY;
+
+@Entity
 public class OrderItem extends BaseEntity{
 
     @Id@GeneratedValue
     @Column(name = "ORDER_ITEM_ID")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "ORDER_ID",  foreignKey = @ForeignKey(name = "FK_ORDER_ITEM_ORDER"))
     private Order order;
 
-    @ManyToOne
+    @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "ITEM_ID",  foreignKey = @ForeignKey(name = "FK_ORDER_ITEM_ITEM"))
     private Item item;
     private int orderPrice;
