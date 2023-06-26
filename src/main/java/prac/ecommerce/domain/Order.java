@@ -8,8 +8,8 @@ import java.util.List;
 import static javax.persistence.CascadeType.*;
 import static javax.persistence.FetchType.*;
 
-@Entity
-@Table(name = "ORDERS") //ORDER는 DB의 예약어이기 때문에,,,!
+//@Entity
+//@Table(name = "ORDERS") //ORDER는 DB의 예약어이기 때문에,,,!
 public class Order extends BaseEntity{
 
     @Id@GeneratedValue

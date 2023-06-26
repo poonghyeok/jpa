@@ -5,7 +5,7 @@ import javax.persistence.*;
 import static javax.persistence.CascadeType.*;
 import static javax.persistence.FetchType.*;
 
-@Entity
+//@Entity
 public class Delivery extends BaseEntity{
 
     @Id@GeneratedValue

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-//@Entity /*실습으로 일시주석*/
+@Entity /*실습으로 일시주석*/
 /*@TableGenerator(
         name = "member_seq_generator",
         table = "my_sequences",
@@ -21,7 +21,7 @@ import java.util.List;
         initialValue = 1, allocationSize = 50
 )
 */
-public class Member extends BaseEntity{
+public class Member{
 
     @Id
     @GeneratedValue()
@@ -48,6 +48,22 @@ public class Member extends BaseEntity{
     @ManyToMany
     @JoinTable(name = "MEMBER_PRODUCT")
     private List<Product> products = new ArrayList<>();
+
+    //기간 Period
+    @Embedded
+    private Period period;
+
+    //주소 Address
+    @Embedded
+    private Address address;
+
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "city", column = @Column(name = "WORK_CITY")),
+            @AttributeOverride(name = "street", column = @Column(name = "WORK_STREET")),
+            @AttributeOverride(name = "zipcode", column = @Column(name = "WORK_ZIPCODE")),
+    })
+    private Address workAddress;
 
     /**
      * 다대다를 다대일로 낮추고 매핑테이블은 엔터티로 승격시켜서 사용하기
@@ -108,5 +124,29 @@ public class Member extends BaseEntity{
 
     public void setLocker(Locker locker) {
         this.locker = locker;
+    }
+
+    public Period getPeriod() {
+        return period;
+    }
+
+    public void setPeriod(Period period) {
+        this.period = period;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public Address getWorkAddress() {
+        return workAddress;
+    }
+
+    public void setWorkAddress(Address workAddress) {
+        this.workAddress = workAddress;
     }
 }
