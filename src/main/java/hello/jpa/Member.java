@@ -57,13 +57,7 @@ public class Member{
     @Embedded
     private Address address;
 
-    @Embedded
-    @AttributeOverrides({
-            @AttributeOverride(name = "city", column = @Column(name = "WORK_CITY")),
-            @AttributeOverride(name = "street", column = @Column(name = "WORK_STREET")),
-            @AttributeOverride(name = "zipcode", column = @Column(name = "WORK_ZIPCODE")),
-    })
-    private Address workAddress;
+
 
     /**
      * 다대다를 다대일로 낮추고 매핑테이블은 엔터티로 승격시켜서 사용하기
@@ -140,13 +134,5 @@ public class Member{
 
     public void setAddress(Address address) {
         this.address = address;
-    }
-
-    public Address getWorkAddress() {
-        return workAddress;
-    }
-
-    public void setWorkAddress(Address workAddress) {
-        this.workAddress = workAddress;
     }
 }

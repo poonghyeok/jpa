@@ -16,13 +16,18 @@ public class JpaMain7 {
         tx.begin();
 
         try {
+            Address address = new Address("seoul", "achasan", "31184");
+
             Member member = new Member();
-
             member.setUsername("jpa king poonghyeok");
-            member.setAddress(new Address("seoul", "achasan", "31184"));
-            member.setPeriod(new Period(LocalDateTime.now(), LocalDateTime.now()));
-
+            member.setAddress(address);
             em.persist(member);
+
+            Address address2 = new Address(address.getCity(), address.getStreet(), address.getZipcode());
+            Member member2 = new Member();
+            member2.setUsername("spring king poonghyeok");
+            member2.setAddress(address2);
+            em.persist(member2);
 
             tx.commit();
         } catch (Exception e) {
